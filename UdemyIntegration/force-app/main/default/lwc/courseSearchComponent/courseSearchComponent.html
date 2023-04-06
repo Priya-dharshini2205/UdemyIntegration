@@ -1,0 +1,56 @@
+<template>
+  <lightning-card title="Search Udemy Courses">
+    <div style="padding: 0 1rem">
+      <lightning-layout horizontal-align="space">
+        <lightning-layout-item size="8">
+          <lightning-input
+            name="enter-search"
+            type="search"
+            placeholder="Search courses"
+            variant="label-hidden"
+            class="course-input"
+          ></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="horizontal-medium">
+          <lightning-layout horizontal-align="start">
+            <lightning-layout-item padding="horizontal-medium">
+              <lightning-button
+                label="Search"
+                onclick={fetchCourses}
+              ></lightning-button>
+            </lightning-layout-item>
+          </lightning-layout>
+        </lightning-layout-item>
+      </lightning-layout>
+<br><br>
+      <lightning-layout multiple-rows>
+
+        
+         <lightning-layout-item size="4" class="slds-p-right_medium" style="font-weight: bold">
+          Total No of Courses found : {count}
+         </lightning-layout-item>
+         <template if:true={flag}>
+        <lightning-layout-item size="8">
+          <lightning-button-icon icon-name="utility:back"   variant="brand" alternative-text="Go to Previous Page" class="slds-m-left_xx-small" title="Back" disabled={disablePrevious} onclick={handleBack}></lightning-button-icon>
+          <lightning-button-icon icon-name="utility:forward"    variant="brand" alternative-text="Go to Next Page"   class="slds-m-left_xx-small" title="Next"  onclick={handleNext} disabled={disableNext}></lightning-button-icon>
+        </lightning-layout-item>
+        </template>
+
+        <template for:each={courses} for:item="course">
+          <lightning-layout-item size="12" key={course.id}>
+            <c-courses
+              course-id={course.id}
+              image={course.image_480x270}
+              title={course.title}
+              price={course.price}
+              summary={course.headline}
+              instructor={course.visible_instructors}
+              course-url={course.url}
+              price-details={course.price_detail}
+            ></c-courses>
+          </lightning-layout-item>
+        </template>
+      </lightning-layout>
+    </div>
+  </lightning-card>
+</template>

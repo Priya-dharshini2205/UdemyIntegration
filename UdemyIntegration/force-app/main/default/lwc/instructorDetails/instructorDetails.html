@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-media__figure">
+                                        <a href="javascript:void(0);"
+                                            class="slds-avatar slds-avatar_circle slds-avatar_large">
+
+                                            <!-- Displaying user photo -->
+                                            <img alt={name} src={image}
+                                                title={name} />
+
+                                        </a>
+    &nbsp; &nbsp; - &nbsp; &nbsp;
+     <lightning-formatted-url 
+         value={InstUrl}
+         label={name} 
+         target="_blank">
+     </lightning-formatted-url>
+
+         &nbsp; &nbsp; - &nbsp; &nbsp;
+        <lightning-formatted-text
+             value={job}>
+        </lightning-formatted-text>
+        <br>
+                                    </div>
+    
+</template>
