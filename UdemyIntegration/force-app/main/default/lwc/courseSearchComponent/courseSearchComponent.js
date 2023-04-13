@@ -28,6 +28,7 @@ export default class CourseSearchComponent extends LightningElement {
       })
       .catch((error) => {
         console.log(error);
+        this.count = 0;
       });
       
 
